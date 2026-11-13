@@ -1,0 +1,57 @@
+:root { color-scheme: dark; font: 13px/1.45 system-ui, sans-serif; color: #e9f2f0; background: #101b1d; }
+* { box-sizing: border-box; }
+body { width: 364px; margin: 0; }
+header { display: flex; align-items: center; gap: 11px; padding: 21px 22px 17px; border-bottom: 1px solid #294044; }
+h1 { margin: 0; font-size: 20px; font-weight: 730; letter-spacing: -.5px; }
+header p { margin: 1px 0 0; color: #a5bfba; font-size: 11px; }
+.version { margin-left: auto; color: #9db9b4; border: 1px solid #36524e; border-radius: 6px; padding: 2px 6px; font-size: 10px; }
+main { padding: 18px 22px 0; }
+.power { display: flex; align-items: center; justify-content: space-between; border: 1px solid #32665d; border-radius: 12px; padding: 15px; background: #15352f; }
+h2 { margin: 0; font-size: 16px; }
+.power p { color: #b3cec6; font-size: 11px; margin: 3px 0 0; }
+body.paused .power { background: #263036; border-color: #45575d; }
+.switch { display: inline-flex; position: relative; width: 42px; height: 24px; flex: 0 0 42px; }
+.switch input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; }
+.track { width: 42px; height: 24px; border-radius: 20px; background: #506263; pointer-events: none; }
+.track::after { content: ""; display: block; width: 18px; height: 18px; margin: 3px; border-radius: 50%; background: #fff; transition: transform .15s; }
+input:checked + .track { background: #239d7e; }
+input:checked + .track::after { transform: translateX(18px); }
+input:focus-visible + .track { outline: 2px solid #b5ffea; outline-offset: 3px; }
+.layers { padding-top: 9px; }
+.setting { display: flex; align-items: center; gap: 12px; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #25393b; cursor: pointer; }
+.setting strong { font-size: 12px; font-weight: 620; display: block; }
+.setting small { display: block; color: #9cb6b2; font-size: 10px; margin-top: 2px; }
+.setting input { width: 16px; height: 16px; accent-color: #58dab7; flex: 0 0 16px; }
+.setting:has(input:disabled) { opacity: .6; cursor: default; }
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin: 18px 0 6px; }
+.metrics[hidden] { display: none; }
+.metrics div { display: flex; flex-direction: column; gap: 4px; }
+.metrics strong { font-size: 23px; color: #78e6c9; font-weight: 650; font-variant-numeric: tabular-nums; }
+.metrics span { font-size: 10px; color: #b0c4c0; }
+.metric-note { font-size: 10px; color: #91aaa5; margin: 8px 0 15px; }
+button { width: 100%; border: 1px solid #467366; border-radius: 8px; background: #1c4239; color: #e4fff6; font: inherit; font-size: 12px; font-weight: 600; padding: 10px; cursor: pointer; }
+button:hover:not(:disabled) { background: #28584b; }
+button:disabled { opacity: .45; cursor: default; }
+button:focus-visible { outline: 2px solid #b5ffea; outline-offset: 2px; }
+#feedback { min-height: 16px; margin: 7px 0; color: #b6d6cb; font-size: 10px; }
+aside { border-top: 1px solid #2b4243; padding: 12px 0; }
+aside strong { font-size: 10px; text-transform: uppercase; letter-spacing: .9px; color: #edcc91; }
+aside p { color: #aabdb8; font-size: 10px; margin: 5px 0 0; }
+footer { padding: 12px 22px; border-top: 1px solid #273d3e; color: #8fa9a2; font-size: 10px; }
+@media (prefers-reduced-motion: reduce) { .track::after { transition: none; } }
+
+.compatibility { margin-top: 14px; padding: 12px; border: 1px solid #405953; border-radius: 9px; }
+.compatibility[hidden] { display: none; }
+.compatibility strong { font-size: 12px; }
+.compatibility p { color: #b4c8c2; font-size: 11px; margin: 5px 0 10px; }
+body.compatible .compatibility, body.compatible .power { border-color: #b68b40; background: #372e1d; }
+.diagnostics { margin: 14px 0; border: 1px solid #405953; border-radius: 9px; padding: 12px; }
+.diagnostics summary { cursor: pointer; font-size: 12px; font-weight: 650; }
+.diagnostics summary span { float: right; color: #8ee3cb; font-size: 10px; }
+.diagnostics p { font-size: 10px; color: #b4c8c2; line-height: 1.5; }
+.diagnostic-actions { display: flex; gap: 7px; margin-top: 8px; }
+.diagnostic-actions button { font-size: 10px; padding: 7px; }
+.diagnostic-counts { margin: 12px 0 0; font-size: 11px; }
+.diagnostic-counts div { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-bottom: 1px solid #25393b; }
+.diagnostic-counts dd { margin: 0; color: #b6f5e4; font-variant-numeric: tabular-nums; }
+.diagnostics summary:focus-visible { outline: 2px solid #b5ffea; outline-offset: 4px; }

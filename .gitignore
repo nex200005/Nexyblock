@@ -1,0 +1,19 @@
+# Build output
+*.zip
+*.xpi
+web-ext-artifacts/
+
+# Dependencies / tooling
+node_modules/
+.web-extension-id
+.amo-upload-uuid
+
+# Secrets (AMO API keys etc.)
+.env
+*.pem
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

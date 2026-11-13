@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NexyBlock</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icon.svg" alt="" width="36" height="36">
+    <div><h1>NexyBlock</h1><p>YouTube · Firefox</p></div>
+    <span class="version" id="version"></span>
+  </header>
+  <main>
+    <section class="power">
+      <div><h2 id="status">Loading…</h2><p id="status-detail">Reading local settings</p></div>
+      <label class="switch main-switch">
+        <input id="enabled" type="checkbox" aria-label="Enable YouTube protection" disabled>
+        <span class="track"></span>
+      </label>
+    </section>
+    <details id="diagnostics" class="diagnostics">
+      <summary>Opt-in diagnostics <span id="diagnostics-state">Off</span></summary>
+      <p id="diagnostics-note">Off by default. Session counts stay in RAM; no URLs or player data are collected.</p>
+      <button id="diagnostics-toggle" type="button" disabled>Start diagnostics</button>
+      <div id="diagnostics-session" hidden>
+        <div class="diagnostic-actions">
+          <button id="diagnostics-refresh" type="button">Refresh counts</button>
+          <button id="diagnostics-reset" type="button">Reset counts</button>
+        </div>
+        <dl class="diagnostic-counts">
+          <div><dt>Filters attached</dt><dd id="diag-streamsStarted">—</dd></div>
+          <div><dt>Filters released</dt><dd id="diag-streamsFinished">—</dd></div>
+          <div><dt>Timeouts</dt><dd id="diag-timeouts">—</dd></div>
+          <div><dt>Size-limit bypasses</dt><dd id="diag-sizeBypasses">—</dd></div>
+          <div><dt>Stream errors</dt><dd id="diag-streamErrors">—</dd></div>
+          <div><dt>Filter attachment errors</dt><dd id="diag-attachErrors">—</dd></div>
+          <div><dt>Concurrency-limit bypasses</dt><dd id="diag-capacityBypasses">—</dd></div>
+          <div><dt>Manual compatibility bypasses</dt><dd id="diag-manualBypasses">—</dd></div>
+          <div><dt>Pause bypasses</dt><dd id="diag-pauseBypasses">—</dd></div>
+          <div><dt>Tab-close bypasses</dt><dd id="diag-tabCloseBypasses">—</dd></div>
+        </dl>
+        <p class="diagnostic-help">All YouTube tabs combined. Released filters include bypasses and errors. Counts describe filter activity, not ads blocked or video loading time. Refresh to update.</p>
+      </div>
+    </details>
+    <section class="layers" aria-label="Protection settings">
+      <label class="setting"><span><strong>Ad requests</strong><small>Filter known advertising endpoints</small></span><input id="network" type="checkbox" disabled></label>
+      <label class="setting"><span><strong>Player response filtering</strong><small>Remove known ad metadata</small></span><input id="metadata" type="checkbox" disabled></label>
+      <label class="setting"><span><strong>Page cleanup</strong><small>Hide dedicated ad containers</small></span><input id="cosmetic" type="checkbox" disabled></label>
+      <label class="setting"><span><strong>Automatic Skip Ad clicks</strong><small>Click visible buttons during marked ads</small></span><input id="autoSkip" type="checkbox" disabled></label>
+      <label class="setting"><span><strong>Ad-count statistics</strong><small>Optional · off by default</small></span><input id="statistics" type="checkbox" disabled></label>
+    </section>
+    <section id="compatibility" class="compatibility" hidden aria-label="This tab's compatibility mode">
+      <strong id="compatibility-title">Compatibility mode</strong>
+      <p id="compatibility-note" role="status" aria-live="polite"></p>
+      <button id="compatibility-toggle" type="button" disabled>Use compatibility mode</button>
+    </section>
+    <section id="metrics" class="metrics" aria-label="Session activity" hidden>
+      <div><strong id="requestsBlocked">—</strong><span>Requests blocked</span></div>
+      <div><strong id="responsesCleaned">—</strong><span>Responses cleaned</span></div>
+      <div><strong id="skipClicks">—</strong><span>Skip clicks</span></div>
+    </section>
+    <p id="statistics-note" class="metric-note">Ad-count statistics are off.</p>
+    <button id="reload" type="button" disabled>Reload this YouTube tab</button>
+    <p id="feedback" role="status" aria-live="polite"></p>
+    <aside><strong>Experimental build</strong><p>YouTube changes can affect blocking. If playback stalls, pause protection and reload. New response settings need a reload.</p></aside>
+  </main>
+  <footer>No telemetry · Settings stay in Firefox</footer>
+  <script src="core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
