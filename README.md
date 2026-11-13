@@ -4,7 +4,7 @@ Experimental YouTube ad filtering for Firefox. NexyBlock blocks known ad request
 
 Everything runs locally. There is no telemetry, no remote code and no network access of its own (the extension's CSP sets `connect-src 'none'`).
 
-**Install:** [NexyBlock on Firefox Add-ons](https://addons.mozilla.org/firefox/addon/nexyblock/) <!-- update if your listing slug differs -->
+**Install:** [NexyBlock on Firefox Add-ons](https://addons.mozilla.org/firefox/addon/nexyblock/)
 
 > NexyBlock is an original implementation. It does not bundle uBlock Origin code or third-party filter lists.
 
