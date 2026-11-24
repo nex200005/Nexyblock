@@ -34,7 +34,7 @@
   `;
   const SKIP_SELECTORS = [
     ".ytp-skip-ad-button", ".ytp-ad-skip-button-modern", ".ytp-ad-skip-button",
-    ".ytp-skip-ad-button-modern", ".videoAdUiSkipButton"
+    ".ytp-skip-ad-button-modern", ".videoAdUiSkipButton", ".ytp-skip-ad"
   ].join(",");
 
   function normalizeSettings(input) {
